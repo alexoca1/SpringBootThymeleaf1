@@ -4,11 +4,35 @@
     <head>
         <title>Pagina Inicio</title>
         <meta charset="UTF-8">
-        
+
     </head>
     <body>
         <h1>Inicio</h1>
         <p th:text="${hola}">1111</p>
         <p th:text="${hola2}">2222</p>
+        <br/>
+        <div th:if="${individuos !=null and individuos !=empty}">
+            <table border="2">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>edad</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>                    
+                <tr>    
+
+                <tr th:each="individuo : ${individuos}">
+                    <td th:text="${individuo.nombre}">Muestra nombre</td>
+                    <td th:text="${individuo.apellido}">Muestra apellido</td>
+                    <td th:text="${individuo.edad}">Muestra edad</td>
+                    <td th:text="${individuo.correo}">Muestra correo</td>
+                    <td th:text="${individuo.telefono}">Muestra telefono</td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${individuos== null or individuos==empty}">La lista no tiene informacion</div>
+            <br/>
     </body>
 </html>
+
+
